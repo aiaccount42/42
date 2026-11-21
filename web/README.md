@@ -122,3 +122,7 @@ Hinweis: Die Namen der Ziel-Apps sind der Schlüssel – wer eine App umbenennt,
 - Bibliothek: Knopf „Meine N Decks aktualisieren“ holt alle verbesserten Decks auf einmal.
 - KI-Vorlage (`promptVorlage`): Regeln für plausible falsche Antworten ergänzt.
 - Messung vor der Überarbeitung (alle Decks): bei 769 von 2.321 Auswahlkarten stehen Absolutwörter nur in den falschen Antworten.
+
+## Update 15 (2026-11-21)
+- Auffüllung im Quiz (`js/core/auswahl.js`): Sind zu wenige Karten fällig, kommen zuerst noch nicht sichere Karten, deren Abstand am weitesten abgelaufen ist. Gerade beantwortete Karten mit kurzem Abstand landen hinten, sichere Karten (Box 4–5) nur, wenn sonst nichts übrig ist. Vorher kamen immer die am frühesten fälligen, also oft dieselben gerade geübten Karten.
+- Erklärungen kompakter: im Deck „Ernährung“ höchstens 130 Zeichen, auf kleinen Displays 15 px und engere Zeilen.

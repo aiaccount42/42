@@ -1,6 +1,13 @@
+import { SICHER_AB_BOX } from './fortschritt.js';
+import { aktuellerIntervall } from './intervall.js';
 import { istFaellig, istGueltig } from './models.js';
 import { schwierigkeit } from './schwierigkeit.js';
 import { mischen, system } from './zufall.js';
+
+const TAG_MS = 86_400_000;
+
+/** Wie viel vom Abstand einer nicht fälligen Karte noch übrig ist (0 = gleich fällig, 1 = gerade beantwortet). */
+const restAnteil = (karte, jetzt) => (karte.faelligAm - jetzt) / (Math.max(1, aktuellerIntervall(karte)) * TAG_MS);
 
 /**
  * Kartenauswahl für ein Gate. Priorität:
@@ -8,7 +15,9 @@ import { mischen, system } from './zufall.js';
  *    mindestens 90 % richtig) zuletzt, sonst niedrige Box zuerst, bei gleicher Box die am
  *    längsten überfällige
  * 2. nicht fällige Karten (nur als Auffüllung, damit das Gate nicht leer bleibt):
- *    früher fällige zuerst, dann niedrigere Box
+ *    erst Karten, die noch nicht sicher sind (Box unter 4), dann sichere. Innerhalb davon die, deren
+ *    Abstand schon am weitesten abgelaufen ist. Gerade beantwortete Karten kommen so zuletzt dran,
+ *    statt immer wieder dieselben mit kurzem Abstand.
  * Gleichstände entscheidet der Zufall, die gezogenen Karten werden am Ende gemischt.
  * Ungültige Karten werden ignoriert.
  */
@@ -32,7 +41,10 @@ export function ziehen(karten, anzahl, jetzt, zufall = system, { neuMax = null }
       if (boxUnterschied !== 0) return boxUnterschied;
       if (faelligUnterschied !== 0) return faelligUnterschied;
     } else {
-      if (faelligUnterschied !== 0) return faelligUnterschied;
+      const sicher = (k) => (k.box >= SICHER_AB_BOX ? 1 : 0);
+      if (sicher(a.karte) !== sicher(b.karte)) return sicher(a.karte) - sicher(b.karte);
+      const restUnterschied = restAnteil(a.karte, jetzt) - restAnteil(b.karte, jetzt);
+      if (restUnterschied !== 0) return restUnterschied;
       if (boxUnterschied !== 0) return boxUnterschied;
     }
     return a.los - b.los;

@@ -78,6 +78,19 @@ test('nicht fällige Karten füllen auf, wenn zu wenige fällig sind (früher f�
   assert.deepEqual(fragen, ['bald', 'faellig']);
 });
 
+test('Auffüllung: gerade beantwortete Karte mit kurzem Abstand kommt nach einer, deren Abstand fast abgelaufen ist', () => {
+  const gerade = karte('gerade', { box: 1, faelligAm: jetzt + TAG * 0.95 }); // Abstand 1 Tag, eben beantwortet
+  const fastDran = karte('fastDran', { box: 3, faelligAm: jetzt + TAG * 1.5 }); // Abstand 4 Tage, zu 60 % abgelaufen
+  assert.deepEqual(zieh([gerade, fastDran], 1).map((k) => k.frage), ['fastDran']);
+});
+
+test('Auffüllung: sichere Karten (Box 4–5) erst, wenn keine unsicheren mehr übrig sind', () => {
+  const sicher = karte('sicher', { box: 5, faelligAm: jetzt + TAG });
+  const lernend = karte('lernend', { box: 2, faelligAm: jetzt + TAG * 2 });
+  assert.deepEqual(zieh([sicher, lernend], 1).map((k) => k.frage), ['lernend']);
+  assert.deepEqual(zieh([sicher], 1).map((k) => k.frage), ['sicher']);
+});
+
 test('nur nicht fällige Karten ergeben trotzdem ein Gate', () => {
   const karten = [0, 1, 2].map(() => karte('F', { faelligAm: jetzt + TAG }));
   assert.equal(zieh(karten).length, 3);
