@@ -1,7 +1,7 @@
-# LernGate (Browser-App)
+# 42 (Browser-App, früher LernGate)
 
 Quiz vor dem Öffnen von Instagram/Reddit – als reine Web-App, ohne Xcode, **ohne harte Sperre**.
-Die Logik ist aus `../LernGateCore` (Swift) nach JavaScript portiert und gleich getestet.
+Die Logik ist aus `../Swift-Core` (Swift) nach JavaScript portiert und gleich getestet.
 
 ## Starten
 ```

@@ -43,7 +43,7 @@ const server = http.createServer(async (anfrage, antwort) => {
 });
 
 server.listen(port, '0.0.0.0', () => {
-  console.log(`LernGate läuft:\n  Dieser Rechner:  http://localhost:${port}`);
+  console.log(`42 läuft:\n  Dieser Rechner:  http://localhost:${port}`);
   for (const eintraege of Object.values(networkInterfaces())) {
     for (const e of eintraege ?? []) {
       if (e.family === 'IPv4' && !e.internal) console.log(`  Im selben WLAN:  http://${e.address}:${port}`);

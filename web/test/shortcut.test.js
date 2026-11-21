@@ -28,8 +28,8 @@ test('ohne Kurzbefehl-Name: direkt das URL-Scheme der Ziel-App', () => {
 });
 
 test('mit Kurzbefehl-Name: shortcuts://run-shortcut mit JSON-Eingabe', () => {
-  const link = freischaltLink({ kurzbefehl: 'LernGate Frei', zielApp: instagram, bis: datum(2026, 10, 19, 22, 15) });
-  assert.ok(link.startsWith('shortcuts://run-shortcut?name=LernGate%20Frei&input=text&text='));
+  const link = freischaltLink({ kurzbefehl: '42 Frei', zielApp: instagram, bis: datum(2026, 10, 19, 22, 15) });
+  assert.ok(link.startsWith('shortcuts://run-shortcut?name=42%20Frei&input=text&text='));
   assert.deepEqual(eingabeAus(link), { app: 'Instagram', url: 'instagram://', bis: 202610192215 });
 });
 

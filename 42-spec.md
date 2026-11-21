@@ -1,4 +1,4 @@
-# Lern-Gate – Spezifikation (Prototyp A)
+# 42 (früher Lern-Gate) – Spezifikation (Prototyp A)
 
 ## Ziel
 iPhone-App (SwiftUI, nur privat). Vor dem Öffnen ausgewählter Social-Media-Apps (Instagram, Reddit) muss der Nutzer 5 Multiple-Choice-Karteikarten richtig beantworten. Danach ist die Ziel-App 15 Minuten freigeschaltet. Karten lassen sich manuell anlegen oder per KI aus Text, PDF und Link erzeugen.

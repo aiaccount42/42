@@ -1,4 +1,4 @@
-// UI von LernGate: Hash-Router, Ansichten als HTML-Strings, Klicks per Event-Delegation.
+// UI von 42: Hash-Router, Ansichten als HTML-Strings, Klicks per Event-Delegation.
 // Die gesamte Logik (Leitner, Gate, Freischaltung, Statistik …) steckt in js/core/ und ist getestet.
 import { BELIEBTE_APPS } from './core/apps.js';
 import { DeckFormatFehler, mergeImport, parseDeck, promptVorlage } from './core/deckformat.js';

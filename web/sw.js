@@ -1,4 +1,4 @@
-// Service Worker: legt die App-Dateien zwischen, damit LernGate auch ohne Netz startet.
+// Service Worker: legt die App-Dateien zwischen, damit 42 auch ohne Netz startet.
 // Strategie "Netz zuerst": Online bekommst du immer die neueste Fassung, offline die zuletzt geladene.
 // `npm run bauen` ersetzt VERSION und DATEIEN (beim lokalen Server bleibt es bei den Platzhaltern).
 const VERSION = 'dev';

@@ -114,7 +114,7 @@ function wuenscheNormalisieren(roh) {
 
 /** Macht aus beliebigem JSON gültige Daten: fehlende Felder werden ergänzt, Kaputtes entfällt. */
 export function normalisieren(roh) {
-  if (!istObjekt(roh)) throw new Error('Keine gültigen LernGate-Daten');
+  if (!istObjekt(roh)) throw new Error('Keine gültigen 42-Daten');
 
   const decks = (Array.isArray(roh.decks) ? roh.decks : [])
     .filter((d) => istObjekt(d) && typeof d.id === 'string' && typeof d.name === 'string')
