@@ -128,6 +128,7 @@ Hinweis: Die Namen der Ziel-Apps sind der Schlüssel – wer eine App umbenennt,
 - Erklärungen kompakter: im Deck „Ernährung“ höchstens 130 Zeichen, auf kleinen Displays 15 px und engere Zeilen.
 
 ## Update 16 (2026-11-21)
-- Kartenqualität: 36 von 60 Decks überarbeitet (alle Decks mit den meisten Verräter-Mustern zuerst). Falsche Antworten sind typische Irrtümer und Verwechslungen aus demselben Feld, ähnlich lang und gleich gebaut. Wahr/Falsch-Aussagen ohne „immer/nie“-Hinweise.
-- Offen: geografie, geschichte, biologie, körper, gehirn-nerven, herz-kreislauf, hormone-immunsystem, skelett-gelenke, gesundheit, erste-hilfe, lebensmittel-küche, haushalt-reinigung, hunde, astronomie, physik-chemie, technik, sprache, kunst, philosophie sowie die Sonderdecks (Lückentexte, Reihenfolgen, Prozentrechnen, Wirtschaftsmathe, Wahr-oder-Falsch-Mythen).
+- Kartenqualität: 44 von 60 Decks überarbeitet (alle Decks mit den meisten Verräter-Mustern zuerst). Falsche Antworten sind typische Irrtümer und Verwechslungen aus demselben Feld, ähnlich lang und gleich gebaut. Wahr/Falsch-Aussagen ohne „immer/nie“-Hinweise.
+- Offen: astronomie, biologie, geografie, geschichte, haushalt-reinigung, körper, kunst, philosophie, physik-chemie, sprache, technik sowie die Sonderdecks (Lückentexte, Reihenfolgen, Prozentrechnen, Wirtschaftsmathe, Wahr-oder-Falsch-Mythen).
 - Arbeitsweise: `test/decks.test.js` prüft Antwortlängen und gemeinsame Anfangswörter. Ein Push ohne grüne Tests würde den Deploy abbrechen.
+- Messung auf den 44 überarbeiteten Decks (1.733 Auswahlkarten): Absolutwörter („immer“, „nur“, „keine“ …) stehen nur in den falschen Antworten bei 22 % der Karten, vorher bei 40 %. Richtige Antwort deutlich länger: 36 statt 62 Karten. Ein zweiter Durchgang gegen die restlichen Absolutwörter ist möglich.
