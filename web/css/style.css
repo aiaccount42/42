@@ -1211,3 +1211,10 @@ li,
 .insight-balken .fuell.schlecht {
   background: var(--schlecht);
 }
+
+/* Quiz nach der Antwort: Urteil als schlanke Zeile, damit die Erklärung höher steht */
+.status.kompakt {
+  padding: 5px 14px;
+  margin: 8px 0 4px;
+  font-size: 16px;
+}

@@ -408,6 +408,8 @@ function fragenBlock(sitzung, antwort, extra = '') {
     eingabe = frage.antworten
       .map((text, i) => {
         if (!antwort) return `<button type="button" class="antwort" data-aktion="antwort" data-index="${i}">${esc(text)}</button>`;
+        // Nach der Antwort nur noch die richtige und die gewählte Antwort zeigen: Die Erklärung rückt nach oben und passt ohne Scrollen auf kleine Displays.
+        if (i !== ergebnis.indexRichtig && i !== ergebnis.gewaehlterIndex) return '';
         const klasse = i === ergebnis.indexRichtig ? ' richtig' : i === ergebnis.gewaehlterIndex ? ' falsch' : '';
         return `<button type="button" class="antwort${klasse}" tabindex="-1">${esc(text)}</button>`;
       })
@@ -420,7 +422,7 @@ function fragenBlock(sitzung, antwort, extra = '') {
       : '';
   const nochmal = sitzung.wiederholt === false ? '' : ' Die Karte kommt später noch einmal.';
   const feedback = antwort
-    ? `<p class="status ${ergebnis.richtig ? 'frei' : 'falsch'}">${
+    ? `<p class="status kompakt ${ergebnis.richtig ? 'frei' : 'falsch'}">${
         ergebnis.richtig
           ? 'Richtig!'
           : frage.eingabe
@@ -1463,6 +1465,16 @@ function zeichne() {
   app.innerHTML = (flash ? `<p class="hinweis">${esc(flash)}</p>` : '') + html;
   flash = null;
   app.querySelector('input[name="zahl"]')?.focus();
+  erklaerungSichtbar();
+}
+
+/** Nach einer Antwort: Ragt die Erklärung unter die „Weiter“-Leiste, scrollt die Seite genau so weit, dass sie ganz lesbar ist. */
+function erklaerungSichtbar() {
+  const erklaerung = app.querySelector('.erklaerung');
+  const leiste = app.querySelector('.weiter-leiste');
+  if (!erklaerung || !leiste) return;
+  const ueberstand = erklaerung.getBoundingClientRect().bottom - (leiste.getBoundingClientRect().top + 12);
+  if (ueberstand > 0) window.scrollBy({ top: ueberstand + 4, behavior: 'smooth' });
 }
 
 /** Wird bei jedem Seitenwechsel aufgerufen; startet bei Bedarf ein neues Quiz. */

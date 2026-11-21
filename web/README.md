@@ -111,3 +111,7 @@ Hinweis: Die Namen der Ziel-Apps sind der Schlüssel – wer eine App umbenennt,
 - Statistik-Dashboard (`#/statistik`, Logik in `js/core/insights.js`): Zeitraum 7/30/90 Tage, Kacheln (Antworten, Richtig-Quote, App-Zugriffe, „Doch nicht geöffnet“) mit Vergleich zum Zeitraum davor, Serie und längste Serie, automatische „Auffälligkeiten“ (Quote-Trend, meistgenutzte App, Stoßzeit, stärkster Wochentag, stärkstes/schwächstes Deck), Verlaufsdiagramm richtig/falsch je Tag (Tippen zeigt Tagesdetails inkl. Apps), Zugriffe je App, Wochentage, Uhrzeiten, Quote je Deck, Lernstand gesamt, knifflige Karten.
 - Neu erfasst: Freischaltungen nach Uhrzeit (`u` pro Tag, optional, abwärtskompatibel). Gilt erst ab diesem Update, ältere Tage haben keine Uhrzeit.
 - 471 Tests grün.
+
+## Update 13 (2026-11-21)
+- Quiz auf kleinen Displays (iPhone 13 mini, 375 × ~629 px): Nach der Antwort bleiben nur die richtige und die gewählte Antwort sichtbar, das Urteil („Richtig!“ / „Leider falsch“) ist eine schlanke Zeile. Die Erklärung steht dadurch ohne Scrollen über der „Weiter“-Leiste. Ragt sie bei sehr langen Texten doch darunter, scrollt `erklaerungSichtbar()` (`js/app.js`) genau so weit, dass sie ganz lesbar ist.
+- Gemessen im 375 × 629-Fenster: vorher lag die Erklärung bei 4 Antworten 601–650 px tief (unter der Leiste), jetzt bei 507–559 px.
