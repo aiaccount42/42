@@ -1,0 +1,12 @@
+{
+  "name": "lerngate-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "LernGate als Browser-App: Quiz vor dem Öffnen von Social-Media-Apps (weiche Sperre)",
+  "scripts": {
+    "start": "node serve.mjs",
+    "bauen": "node bauen.mjs",
+    "test": "TZ=Europe/Berlin node --test"
+  }
+}

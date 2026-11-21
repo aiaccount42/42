@@ -1,0 +1,1213 @@
+:root {
+  /* Apple-Look: ruhige Flächen, ein Akzent (Blau), viel Luft, weiche Rundungen */
+  --bg: #f2f2f7;
+  --karte: #ffffff;
+  --text: #1c1c1e;
+  --leise: #6c6c70;
+  --linie: rgba(60, 60, 67, 0.14);
+  --fuell: rgba(120, 120, 128, 0.12); /* Eingabefelder, Spuren */
+  --akzent: #0071e3; /* Links, Text-Akzente */
+  --akzent-tint: rgba(0, 113, 227, 0.11);
+  --signal: #0071e3; /* Primäre Knöpfe, Fortschritt */
+  --signal-text: #ffffff;
+  --akzent-text: #1c1c1e;
+  --gut: #248a3d;
+  --gut-bg: #e4f6e8;
+  --schlecht: #d70015;
+  --schlecht-bg: #fdebed;
+  --warn-bg: #fff1b8;
+  --radius: 16px;
+  --radius-gross: 22px;
+  --schatten: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 20px rgba(0, 0, 0, 0.05);
+  --glas: rgba(242, 242, 247, 0.78);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --karte: #1c1c1e;
+    --text: #f5f5f7;
+    --leise: #98989f;
+    --linie: rgba(84, 84, 88, 0.55);
+    --fuell: rgba(118, 118, 128, 0.24);
+    --akzent: #2f8cff;
+    --akzent-tint: rgba(47, 140, 255, 0.18);
+    --signal: #0a84ff;
+    --akzent-text: #f5f5f7;
+    --gut: #30d158;
+    --gut-bg: #0f2a18;
+    --schlecht: #ff6961;
+    --schlecht-bg: #33171a;
+    --warn-bg: #5a4a10;
+    --schatten: none;
+    --glas: rgba(0, 0, 0, 0.72);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.45 -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.kopf {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 12px 20px 8px;
+  background: var(--glas);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.kopf nav {
+  display: flex;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+a {
+  color: var(--akzent);
+  text-decoration: none;
+}
+p a,
+.klein a,
+li a {
+  text-decoration: underline;
+  text-decoration-color: var(--akzent-tint);
+  text-underline-offset: 3px;
+}
+
+main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 4px 20px 48px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin: 10px 0 10px;
+}
+
+h2 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 30px 0 10px;
+}
+
+.karte {
+  background: var(--karte);
+  border-radius: var(--radius-gross);
+  box-shadow: var(--schatten);
+  padding: 16px 18px;
+  margin: 12px 0;
+}
+
+.status {
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-weight: 600;
+}
+.status.frei {
+  background: var(--gut-bg);
+  color: var(--gut);
+}
+.status.gesperrt {
+  background: var(--karte);
+  box-shadow: var(--schatten);
+}
+.status.falsch {
+  background: var(--schlecht-bg);
+  color: var(--schlecht);
+}
+
+.klein {
+  color: var(--leise);
+  font-size: 14px;
+}
+
+.hinweis {
+  background: var(--akzent-tint);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin: 14px 0;
+}
+
+.fehler {
+  color: var(--schlecht);
+  min-height: 1.4em;
+  margin: 6px 0;
+}
+
+/* Knöpfe */
+button,
+.knopf {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  padding: 13px 18px;
+  margin: 10px 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--signal);
+  color: var(--signal-text);
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: -0.011em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease, background-color 0.2s ease;
+}
+button:active,
+.knopf:active,
+a.zeile:active {
+  transform: scale(0.98);
+  opacity: 0.85;
+}
+button:focus-visible,
+.knopf:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--akzent-tint);
+  outline-offset: 2px;
+}
+button.sekundaer,
+.knopf.sekundaer {
+  background: var(--akzent-tint);
+  color: var(--akzent);
+  border: 0;
+}
+button.gefahr {
+  background: var(--schlecht-bg);
+  color: var(--schlecht);
+  border: 0;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.knopf.gross {
+  min-height: 62px;
+  font-size: 20px;
+  border-radius: var(--radius-gross);
+}
+
+/* Listen */
+.zeile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 18px;
+  margin: 10px 0;
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+.zeile .klein {
+  white-space: nowrap;
+}
+a.zeile::after {
+  content: '›';
+  flex: none;
+  color: var(--leise);
+  font-size: 24px;
+  line-height: 1;
+  opacity: 0.6;
+  margin-left: -4px;
+}
+
+/* Formulare */
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+  font-size: 15px;
+}
+input[type='text'],
+input[type='number'],
+textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--fuell);
+  color: var(--text);
+  font: inherit;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--akzent-tint);
+  outline-offset: 0;
+}
+textarea {
+  resize: vertical;
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 12px 0;
+}
+legend {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.antwort-zeile,
+.app-zeile {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 6px 0;
+}
+.antwort-zeile input[type='radio'] {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+.app-zeile button {
+  width: 48px;
+  flex: none;
+  margin: 0;
+}
+.inline-form {
+  display: flex;
+  gap: 8px;
+}
+.inline-form button {
+  width: auto;
+  margin: 0;
+}
+
+/* Statistik */
+.balken {
+  display: grid;
+  grid-template-columns: 56px 1fr 36px;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  font-size: 15px;
+}
+.balken .spur {
+  background: var(--fuell);
+  border-radius: 6px;
+  height: 10px;
+  overflow: hidden;
+}
+.balken .fuell {
+  background: var(--signal);
+  height: 100%;
+}
+
+/* Quiz */
+.fortschritt {
+  background: var(--fuell);
+  border-radius: 6px;
+  height: 6px;
+  overflow: hidden;
+  margin: 8px 0 20px;
+}
+.fortschritt > div {
+  background: var(--signal);
+  border-radius: 6px;
+  height: 100%;
+  transition: width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.frage {
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 8px 0 20px;
+  white-space: pre-wrap;
+}
+.antwort {
+  background: var(--karte);
+  color: var(--text);
+  border: 2px solid transparent;
+  box-shadow: var(--schatten);
+  text-align: left;
+  font-weight: 500;
+  padding: 14px 18px;
+}
+.antwort.richtig {
+  border-color: var(--gut);
+  background: var(--gut-bg);
+}
+.antwort.falsch {
+  border-color: var(--schlecht);
+  background: var(--schlecht-bg);
+}
+.skip {
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid var(--linie);
+  text-align: center;
+}
+.skip button {
+  width: auto;
+  display: inline-block;
+}
+
+pre.url,
+input.url {
+  font: 14px ui-monospace, Menlo, monospace;
+  word-break: break-all;
+}
+ol.schritte {
+  padding-left: 22px;
+}
+ol.schritte li {
+  margin: 10px 0;
+}
+
+/* Import, Bibliothek */
+.erklaerung {
+  background: var(--akzent-tint);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin: 14px 0;
+}
+textarea.mono {
+  font: 13px ui-monospace, Menlo, monospace;
+}
+details {
+  margin: 12px 0;
+}
+summary {
+  cursor: pointer;
+  color: var(--akzent);
+  font-weight: 600;
+}
+label.import-zeile {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 8px 0;
+  padding: 14px;
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  border-radius: var(--radius);
+  font-weight: 400;
+  font-size: 16px;
+}
+label.import-zeile input {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  margin-top: 2px;
+}
+label.import-zeile.fehlerhaft {
+  opacity: 0.75;
+}
+
+/* Status je Ziel-App auf der Startseite */
+.knopf.frei {
+  background: var(--gut);
+  color: #fff;
+}
+.knopf-status {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+/* Einstellungen: Ziel-App-Blöcke, Checkboxen, Zeilen */
+.app-block {
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  border-radius: var(--radius-gross);
+  padding: 14px;
+  margin: 12px 0;
+}
+.app-block .app-zeile {
+  margin-top: 0;
+}
+.app-optionen label {
+  margin: 8px 0 4px;
+}
+select,
+input[type='time'] {
+  width: 100%;
+  padding: 13px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--fuell);
+  color: var(--text);
+  font: inherit;
+}
+label.check {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 400;
+  margin: 8px 0;
+}
+label.check input {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+.drei {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.drei label {
+  font-size: 13px;
+  margin-top: 4px;
+}
+.zeile-einfach {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--linie);
+}
+.zeile-einfach:last-child {
+  border-bottom: 0;
+}
+
+/* Quiz: "Weiter" bleibt am unteren Rand sichtbar, kein Scrollen nötig */
+.weiter-leiste {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  margin: 12px -20px 0;
+  padding: 16px 20px calc(10px + env(safe-area-inset-bottom));
+  background: linear-gradient(to bottom, transparent, var(--bg) 30%);
+}
+.weiter-leiste button {
+  margin: 0;
+}
+button.melden {
+  min-height: 40px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Kleine Displays (z. B. iPhone mini): Quiz kompakter, damit mehr auf den Bildschirm passt */
+@media (max-height: 760px) {
+  .kopf {
+    padding: 8px 16px 0;
+  }
+  main {
+    padding-top: 2px;
+  }
+  h1 {
+    font-size: 26px;
+    margin: 6px 0 4px;
+  }
+  .frage {
+    font-size: 20px;
+    margin: 4px 0 10px;
+  }
+  .fortschritt {
+    margin: 4px 0 10px;
+  }
+  .antwort {
+    min-height: 44px;
+    padding: 9px 14px;
+    margin: 6px 0;
+  }
+  .status {
+    padding: 9px 14px;
+    margin: 8px 0;
+  }
+  .erklaerung {
+    margin: 8px 0;
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+  .skip {
+    margin-top: 16px;
+    padding-top: 8px;
+  }
+}
+
+/* Einrichtung */
+.intro {
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  border-radius: var(--radius-gross);
+  padding: 4px 18px 14px;
+  margin: 14px 0;
+}
+.intro h2 {
+  margin-top: 14px;
+}
+.liste-kompakt {
+  padding-left: 20px;
+  margin: 6px 0;
+}
+.liste-kompakt li {
+  margin: 4px 0;
+}
+.wahl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.wahl button {
+  margin: 0;
+  min-height: 56px;
+  font-size: 18px;
+}
+.url-karte {
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  border-radius: var(--radius);
+  padding: 12px 16px 8px;
+  margin: 12px 0;
+}
+.url-karte input {
+  margin: 6px 0 2px;
+}
+ol.schritte {
+  list-style: none;
+  counter-reset: schritt;
+  padding-left: 0;
+}
+ol.schritte > li {
+  counter-increment: schritt;
+  position: relative;
+  padding: 0 0 0 40px;
+  margin: 12px 0;
+  min-height: 28px;
+}
+ol.schritte > li::before {
+  content: counter(schritt);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--akzent-tint);
+  color: var(--akzent);
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  line-height: 28px;
+}
+
+/* Logo */
+.logo {
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: 0.02em;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 12px;
+}
+button.chip {
+  width: auto;
+  min-height: 38px;
+  margin: 0;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  background: var(--karte);
+  color: var(--text);
+  box-shadow: var(--schatten);
+}
+.gruppe {
+  margin-top: 10px;
+  font-weight: 600;
+}
+h3 {
+  font-size: 16px;
+  margin: 20px 0 6px;
+}
+.slogan {
+  color: var(--leise);
+  font-size: 14px;
+  margin: 2px 0 10px;
+}
+
+/* Kartentypen, Woche, Meldungen */
+.typ-hinweis {
+  color: var(--leise);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 6px 0 0;
+}
+.knifflig {
+  margin: -6px 0 10px;
+}
+.luecke {
+  display: inline-block;
+  min-width: 64px;
+  border-bottom: 3px solid var(--signal);
+  margin: 0 4px;
+}
+.antwort .nr {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--akzent-tint);
+  color: var(--akzent);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+.antwort.gewaehlt {
+  opacity: 0.7;
+  border-color: var(--signal);
+}
+.antwort.schritt {
+  cursor: default;
+}
+.nein {
+  text-align: center;
+  margin-top: 10px;
+}
+.nein button {
+  width: auto;
+  display: inline-block;
+}
+.gross-zahl {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.gross-zahl .zahl {
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--akzent);
+  min-width: 90px;
+}
+.balken.wochen {
+  grid-template-columns: 40px 1fr 32px;
+}
+
+/* Pausierte Decks */
+.zeile.pausiert {
+  opacity: 0.55;
+}
+.pause-karte button {
+  margin-bottom: 4px;
+}
+
+/* Kopfrechnen: Tipp, Rechenweg */
+.erklaerung {
+  white-space: pre-line;
+}
+details.tipp {
+  margin: 4px 0 14px;
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+}
+details.tipp p {
+  margin: 8px 0 4px;
+}
+.zeilen-knopf {
+  width: auto;
+  min-height: 40px;
+  margin: 0;
+  padding: 6px 14px;
+  font-size: 15px;
+}
+.zeile-einfach strong {
+  min-width: 56px;
+}
+.zeile-einfach {
+  gap: 12px;
+}
+
+/* Willkommen, Fußzeile, Rechtliches */
+.punkte {
+  padding-left: 20px;
+}
+.punkte li {
+  margin: 8px 0;
+}
+.fuss {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 20px calc(32px + env(safe-area-inset-bottom));
+  text-align: center;
+  font-size: 13px;
+  color: var(--leise);
+}
+.fuss a {
+  color: var(--leise);
+}
+.hinweis.fehler {
+  background: var(--schlecht-bg);
+  border-color: var(--schlecht);
+}
+mark.platzhalter {
+  background: var(--warn-bg);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+/* Startseite für neue Nutzer */
+.hero {
+  background: linear-gradient(150deg, #0a84ff 0%, #5e5ce6 100%);
+  color: #fff;
+  border-radius: 28px;
+  padding: 28px 22px 22px;
+  margin: 8px 0 14px;
+  box-shadow: 0 10px 30px rgba(10, 132, 255, 0.28);
+}
+.hero h1 {
+  color: #fff;
+  font-size: 34px;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin: 0 0 12px;
+}
+.hero p {
+  margin: 0 0 14px;
+  font-size: 17px;
+}
+.chips-zeile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chips-zeile span {
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.chips-zeile.hell span {
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  color: var(--text);
+  font-weight: 500;
+}
+.vorteile {
+  display: grid;
+  gap: 10px;
+}
+.vorteil {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  border-radius: var(--radius-gross);
+  padding: 14px 16px;
+}
+.vorteil .emoji {
+  font-size: 26px;
+  line-height: 1.2;
+}
+.vorteil em {
+  color: var(--leise);
+  font-size: 14px;
+}
+
+/* Bibliothek: kompakte Deck-Einträge, Suche, aktiver Filter */
+button.chip.aktiv {
+  background: var(--signal);
+  color: #fff;
+}
+input[type='search'] {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 14px;
+  margin: 8px 0 12px;
+  font-size: 17px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--fuell);
+  color: inherit;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+input[type='search']:focus {
+  outline: 3px solid var(--akzent-tint);
+}
+.deck-eintrag {
+  padding: 10px 14px;
+  margin: 8px 0;
+}
+.deck-knoepfe {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.deck-knoepfe button {
+  width: auto;
+  flex: 1;
+  min-height: 40px;
+  margin: 0;
+  padding: 8px 10px;
+  font-size: 15px;
+}
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gut);
+  background: var(--gut-bg);
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+/* Bibliothek-Filter: eine waagerecht wischbare Zeile statt vieler Umbrüche */
+#bibliothekSuche + .chips {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin: 0 -20px 8px;
+  padding: 4px 20px 10px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+#bibliothekSuche + .chips::-webkit-scrollbar {
+  display: none;
+}
+#bibliothekSuche + .chips button.chip {
+  flex: none;
+  white-space: nowrap;
+}
+
+/* Überschrift-Zeile über dem Fließtext (Landingpage, Lernseite): erst der Satz, dann in der nächsten Zeile die Erklärung */
+strong.lead {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+.vorteil > div,
+ol.schritte > li {
+  color: var(--leise);
+  font-size: 16px;
+  line-height: 1.4;
+}
+.vorteil strong.lead,
+ol.schritte > li strong.lead {
+  color: var(--text);
+}
+.vorteil {
+  align-items: center;
+  gap: 14px;
+}
+.vorteil .emoji {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  line-height: 1;
+  background: var(--akzent-tint);
+  border-radius: 12px;
+}
+ol.schritte > li {
+  margin: 16px 0;
+}
+.hero p {
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+/* Saubere Zeilenumbrüche: keine einzelnen Wörter am Zeilenende */
+strong.lead,
+h1,
+h2,
+.frage {
+  text-wrap: balance;
+}
+p,
+li,
+.vorteil > div {
+  text-wrap: pretty;
+}
+
+/* Lernstand: Fortschrittsbalken pro Deck */
+.mini {
+  display: block;
+  position: relative;
+  height: 5px;
+  margin-top: 8px;
+  border-radius: 3px;
+  background: var(--fuell);
+  overflow: hidden;
+}
+.mini.gross {
+  height: 8px;
+  margin: 10px 0 12px;
+  border-radius: 4px;
+}
+.mini i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: block;
+  border-radius: inherit;
+}
+.mini .gesehen {
+  background: var(--akzent);
+  opacity: 0.3;
+}
+.mini .sicher {
+  background: var(--gut);
+}
+.deck-zeile .deck-name {
+  flex: 1;
+  min-width: 0;
+}
+.deck-zeile .deck-info {
+  text-align: right;
+  line-height: 1.35;
+}
+.deck-zeile .deck-info strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.deck-zeile .deck-info strong.gemeistert,
+.stand-kopf strong {
+  color: var(--gut);
+}
+.stand-karte p {
+  margin: 6px 0;
+}
+.stand-karte .knopf {
+  margin: 12px 0 6px;
+}
+.stand-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.stand-kopf strong {
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.gemeistert-text {
+  font-size: 15px;
+}
+
+/* Statistik-Dashboard */
+.kacheln {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 8px 0 12px;
+}
+.kachel {
+  background: var(--karte);
+  box-shadow: var(--schatten);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  min-width: 0;
+}
+.kachel .zahl {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.kachel .titel {
+  font-size: 15px;
+  margin-top: 4px;
+}
+.kachel .vergleich {
+  font-size: 13px;
+  color: var(--leise);
+  margin-top: 2px;
+}
+.serie-karte {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.serie-karte .rechts {
+  min-width: 110px;
+  text-align: right;
+}
+.serie-karte .fortschritt {
+  margin: 6px 0 0;
+}
+.satz {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--linie);
+}
+.satz:first-child {
+  padding-top: 0;
+}
+.satz:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.verlauf {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  height: 130px;
+  margin-top: 4px;
+}
+.verlauf .saeule {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.verlauf .saeule.gewaehlt {
+  background: var(--akzent-tint);
+}
+.verlauf .saeule span {
+  display: block;
+  width: 100%;
+  min-height: 0;
+}
+.verlauf .saeule .richtig {
+  background: var(--gut);
+  border-radius: 3px;
+}
+.verlauf .saeule .falsch {
+  background: var(--schlecht);
+  border-radius: 3px 3px 0 0;
+}
+.verlauf .saeule .falsch + .richtig {
+  border-radius: 0 0 3px 3px;
+}
+.verlauf.stunden .saeule {
+  cursor: default;
+  height: 100%;
+}
+.verlauf.stunden .saeule .richtig {
+  background: var(--akzent);
+  border-radius: 3px 3px 0 0;
+}
+.achse {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--leise);
+}
+.achse.woche span {
+  flex: 1;
+  text-align: center;
+}
+.legende {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 4px;
+  font-size: 13px;
+  color: var(--leise);
+}
+.legende .punkt {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.legende .punkt + .punkt,
+.legende .punkt:not(:first-child) {
+  margin-left: 8px;
+}
+.punkt.richtig {
+  background: var(--gut);
+}
+.punkt.falsch {
+  background: var(--schlecht);
+}
+.tag-detail {
+  margin: 6px 0 4px;
+  padding: 10px 12px;
+  background: var(--fuell);
+  border-radius: 10px;
+  font-size: 15px;
+}
+.insight-balken {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: baseline;
+  margin: 12px 0;
+}
+.insight-balken:first-child {
+  margin-top: 0;
+}
+.insight-balken .name {
+  grid-row: 1;
+  grid-column: 1;
+}
+.insight-balken .wert {
+  grid-row: 1;
+  grid-column: 2;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.insight-balken .spur {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--fuell);
+  overflow: hidden;
+}
+.insight-balken .fuell {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--akzent);
+}
+.insight-balken .fuell.gut {
+  background: var(--gut);
+}
+.insight-balken .fuell.schlecht {
+  background: var(--schlecht);
+}

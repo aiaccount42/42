@@ -1,0 +1,424 @@
+{
+  "decks": [
+    {
+      "datei": "ernaehrung.json",
+      "name": "Ernährung",
+      "beschreibung": "Makronährstoffe, Energie, Lebensmittelkunde, Mythen",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "gehirn-nerven.json",
+      "name": "Gehirn & Nerven",
+      "beschreibung": "Nervenzellen, Gehirnbereiche, Botenstoffe, Gedächtnis, Mythen über das Gehirn",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "gesundheit.json",
+      "name": "Gesundheit",
+      "beschreibung": "Vorsorge, Richtwerte, Erste Hilfe, Krankheiten, Mythen",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "herz-kreislauf.json",
+      "name": "Herz, Kreislauf & Atmung",
+      "beschreibung": "Herz, Gefäße, Blutdruck, Lunge, Atmung und typische Erkrankungen",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "hormone-immunsystem.json",
+      "name": "Hormone & Immunsystem",
+      "beschreibung": "Hormone und Immunabwehr",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "naehrstoffe.json",
+      "name": "Nährstoffe",
+      "beschreibung": "Vitamine, Mineralstoffe, Fettsäuren, Eiweiß, Nahrungsergänzung",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "schlaf.json",
+      "name": "Schlaf",
+      "beschreibung": "Schlafbedarf, Schlafphasen, innere Uhr, Schlafhygiene",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "skelett-gelenke.json",
+      "name": "Skelett, Gelenke & Haltung",
+      "beschreibung": "Knochen, Wirbelsäule, Gelenke, Rücken, Haltung im Alltag",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "sport.json",
+      "name": "Sport",
+      "beschreibung": "Training, Muskeln, Ausdauer, Regeneration, Verletzungen",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "sporternaehrung-mythen.json",
+      "name": "Sporternährung & Fitness-Mythen",
+      "beschreibung": "Was beim Essen und Trinken für Sport wirklich zählt",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "training-regeneration.json",
+      "name": "Training & Regeneration",
+      "beschreibung": "Wie Training wirkt, wie du dich erholst und wie du Fortschritte planst",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "verdauung-stoffwechsel.json",
+      "name": "Verdauung & Stoffwechsel",
+      "beschreibung": "Weg der Nahrung, Darm, Leber, Stoffwechsel und typische Beschwerden",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "koerper.json",
+      "name": "Wissen über den Körper",
+      "beschreibung": "Organe, Knochen, Blut, Sinne, Nervensystem",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "zucker.json",
+      "name": "Zucker",
+      "beschreibung": "Zuckerarten, Blutzucker, versteckter Zucker, Süßungsmittel",
+      "kategorie": "Körper & Fitness",
+      "anzahl": 42
+    },
+    {
+      "datei": "behoerden-fristen-vorsorge.json",
+      "name": "Behörden, Fristen & Vorsorge",
+      "beschreibung": "Anmeldung, Einspruch, Testament, Vollmachten und Fristen: Papierkram verständlich und sicher erledigen",
+      "kategorie": "Finanzen & Recht",
+      "anzahl": 42
+    },
+    {
+      "datei": "finanzen-konto-schulden.json",
+      "name": "Finanzen: Konto, Karte & Schulden",
+      "beschreibung": "Girokonto, Karten, Kredite, Schufa, Mahnungen und Schuldenfallen (Deutschland)",
+      "kategorie": "Finanzen & Recht",
+      "anzahl": 42
+    },
+    {
+      "datei": "finanzen-sparen-geldanlage.json",
+      "name": "Finanzen: Sparen, Zinsen & Geldanlage",
+      "beschreibung": "Zinseszins, Inflation, Aktien, ETFs, Risiko, Kosten und Grundprinzipien des Vermögensaufbaus",
+      "kategorie": "Finanzen & Recht",
+      "anzahl": 42
+    },
+    {
+      "datei": "gehalt-steuern-altersvorsorge.json",
+      "name": "Gehalt, Steuern & Altersvorsorge",
+      "beschreibung": "Vom Bruttogehalt über Steuern bis zur Rente: was in Deutschland wichtig ist",
+      "kategorie": "Finanzen & Recht",
+      "anzahl": 42
+    },
+    {
+      "datei": "job-arbeitsrecht-basics.json",
+      "name": "Job & Arbeitsrecht: Basics",
+      "beschreibung": "Kündigung, Zeugnis, Überstunden, Krankheit, Befristung und Gehalt: was Beschäftigte wissen sollten",
+      "kategorie": "Finanzen & Recht",
+      "anzahl": 42
+    },
+    {
+      "datei": "versicherungen-verbraucher.json",
+      "name": "Versicherungen & Verbraucherrechte",
+      "beschreibung": "Welche Versicherungen sinnvoll sind, Widerruf, Gewährleistung, Verträge und Alltagsrecht",
+      "kategorie": "Finanzen & Recht",
+      "anzahl": 42
+    },
+    {
+      "datei": "prozentrechnen.json",
+      "name": "Prozentrechnen",
+      "beschreibung": "Prozentwert, Grundwert, Prozentsatz, Auf- und Abschläge, Mehrwertsteuer, Zinseszins",
+      "kategorie": "Wirtschaft & Mathe",
+      "anzahl": 42
+    },
+    {
+      "datei": "wirtschaft-allgemein.json",
+      "name": "Wirtschaft allgemein",
+      "beschreibung": "Grundbegriffe: BIP, Inflation, Angebot und Nachfrage, Steuern, Märkte, Geld",
+      "kategorie": "Wirtschaft & Mathe",
+      "anzahl": 42
+    },
+    {
+      "datei": "wirtschaftsmathe.json",
+      "name": "Wirtschaftsmathe",
+      "beschreibung": "Zinsen, Skonto, Rendite, Gewinnschwelle, Kalkulation, Dreisatz, Abschreibung",
+      "kategorie": "Wirtschaft & Mathe",
+      "anzahl": 42
+    },
+    {
+      "datei": "betrugsmaschen-alltag.json",
+      "name": "Abzocke & Betrugsmaschen erkennen",
+      "beschreibung": "Typische Tricks, Warnsignale und richtige Reaktionen: von Ping-Anrufen bis zu falschen Polizisten",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "erste-hilfe.json",
+      "name": "Erste Hilfe & Notfälle",
+      "beschreibung": "Notruf, Wiederbelebung, Wunden, Verbrennungen, Vergiftungen und richtiges Handeln im Notfall",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "haushalt-reinigung.json",
+      "name": "Haushalt & Reinigung",
+      "beschreibung": "Putzen, Waschen, Müll trennen und Energie sparen",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "heimwerken-reparieren.json",
+      "name": "Heimwerken & Reparieren: Basics",
+      "beschreibung": "Dübel, Wasserhahn, Fliesen, Fahrrad und Co.: praktische Grundlagen und Handgriffe fürs Zuhause",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "lebensmittel-kueche.json",
+      "name": "Lebensmittel & Küche",
+      "beschreibung": "Hygiene, Lagerung, Haltbarkeit und Kochgrundlagen",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "notfall-vorsorge-zuhause.json",
+      "name": "Notfall & Vorsorge zu Hause",
+      "beschreibung": "Warnungen, Notvorrat, Stromausfall, Brand und Wetter: Was du vorbereiten und im Ernstfall tun kannst",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "reisen-unterwegs-streetsmart.json",
+      "name": "Unterwegs & Reisen: Street Smart",
+      "beschreibung": "Geld im Ausland, Einreise, Taxi, Gepäck, Fahrgastrechte und typische Reise-Fallen",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "verkehr-auto-reisen.json",
+      "name": "Verkehr, Auto & Reisen",
+      "beschreibung": "Verkehrsregeln, Auto, Fahrrad und Reiserecht",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "haus-technik.json",
+      "name": "Wie Häuser funktionieren",
+      "beschreibung": "Heizung, Strom, Wasser, Dämmung, Lüftung und Technik im Haus verständlich erklärt",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "wohnen-miete.json",
+      "name": "Wohnen & Miete",
+      "beschreibung": "Rechte und Pflichten rund um Mietwohnung und Immobilien",
+      "kategorie": "Alltag & Haushalt",
+      "anzahl": 42
+    },
+    {
+      "datei": "digitale-sicherheit.json",
+      "name": "Digitale Sicherheit & Datenschutz",
+      "beschreibung": "Passwörter, Phishing, Betrugsmaschen, Updates, Backups und Datenschutz im Alltag",
+      "kategorie": "Technik & Digital",
+      "anzahl": 42
+    },
+    {
+      "datei": "ki-grundwissen.json",
+      "name": "KI-Grundwissen",
+      "beschreibung": "Wie KI, Sprachmodelle und Co. funktionieren und wie man sie sinnvoll nutzt",
+      "kategorie": "Technik & Digital",
+      "anzahl": 42
+    },
+    {
+      "datei": "technik-wie-funktioniert.json",
+      "name": "Technik: Wie funktioniert das?",
+      "beschreibung": "Wie Alltagstechnik von Internet bis Induktionsherd im Kern funktioniert",
+      "kategorie": "Technik & Digital",
+      "anzahl": 42
+    },
+    {
+      "datei": "denkfehler-entscheidungen.json",
+      "name": "Denkfehler & Entscheidungen",
+      "beschreibung": "Kognitive Verzerrungen, Fehlschlüsse und Methoden für bessere Entscheidungen",
+      "kategorie": "Kopf & Verhalten",
+      "anzahl": 42
+    },
+    {
+      "datei": "effekte-prinzipien.json",
+      "name": "Effekte, Gesetze & Prinzipien",
+      "beschreibung": "Bekannte Effekte und Faustregeln: Coolidge, Pareto, Parkinson, Dunning-Kruger, Halo und viele mehr",
+      "kategorie": "Kopf & Verhalten",
+      "anzahl": 42
+    },
+    {
+      "datei": "kommunikation-beziehungen.json",
+      "name": "Kommunikation & Beziehungen",
+      "beschreibung": "Wie Gespräche, Konflikte, Bindung und Vertrauen funktionieren",
+      "kategorie": "Kopf & Verhalten",
+      "anzahl": 42
+    },
+    {
+      "datei": "lernen-gedaechtnis-gewohnheiten.json",
+      "name": "Lernen, Gedächtnis & Gewohnheiten",
+      "beschreibung": "Effektive Lerntechniken, Gedächtnis, Motivation und Gewohnheiten aufbauen",
+      "kategorie": "Kopf & Verhalten",
+      "anzahl": 42
+    },
+    {
+      "datei": "psychologie-mensch.json",
+      "name": "Psychologie: Wie der Mensch funktioniert",
+      "beschreibung": "Zentrale Experimente, Theorien und Begriffe der Psychologie",
+      "kategorie": "Kopf & Verhalten",
+      "anzahl": 42
+    },
+    {
+      "datei": "stress-resilienz.json",
+      "name": "Stress & Resilienz",
+      "beschreibung": "Wie Stress im Körper wirkt und was die Psyche stark macht",
+      "kategorie": "Kopf & Verhalten",
+      "anzahl": 42
+    },
+    {
+      "datei": "verhandeln-menschenkenntnis.json",
+      "name": "Verhandeln, Überzeugen & Menschenkenntnis",
+      "beschreibung": "Verhandlungsbasics, Verkaufstricks erkennen und Menschen besser einschätzen, nach psychologischer Forschung",
+      "kategorie": "Kopf & Verhalten",
+      "anzahl": 42
+    },
+    {
+      "datei": "astronomie-erde-klima.json",
+      "name": "Astronomie, Erde & Klima",
+      "beschreibung": "Sonnensystem, Universum, Erde, Wetter und Klima in Kernideen",
+      "kategorie": "Wissenschaft & Natur",
+      "anzahl": 42
+    },
+    {
+      "datei": "biologie.json",
+      "name": "Biologie",
+      "beschreibung": "Zelle, Genetik, Photosynthese, Evolution, Ökologie, Immunsystem",
+      "kategorie": "Wissenschaft & Natur",
+      "anzahl": 42
+    },
+    {
+      "datei": "mathe-logik.json",
+      "name": "Mathe & Logik",
+      "beschreibung": "Zahlen, Wahrscheinlichkeit, Statistik und logisches Denken im Alltag",
+      "kategorie": "Wissenschaft & Natur",
+      "anzahl": 42
+    },
+    {
+      "datei": "physik-chemie-alltag.json",
+      "name": "Physik & Chemie im Alltag",
+      "beschreibung": "Kernideen aus Physik und Chemie, die man im Alltag ständig erlebt",
+      "kategorie": "Wissenschaft & Natur",
+      "anzahl": 42
+    },
+    {
+      "datei": "wahr-oder-falsch-mythen.json",
+      "name": "Wahr oder falsch: Mythen & Fakten",
+      "beschreibung": "Stimmt das wirklich? 42 Aussagen aus Natur, Körper und Alltag zum Einordnen",
+      "kategorie": "Wissenschaft & Natur",
+      "anzahl": 42
+    },
+    {
+      "datei": "buchwissen-kernideen.json",
+      "name": "Buchwissen: Kernideen",
+      "beschreibung": "Die wichtigsten Ideen bekannter Sach- und Wissensbücher in einem Satz",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "geografie.json",
+      "name": "Geografie",
+      "beschreibung": "Länder, Hauptstädte, Flüsse, Berge und geografische Grundideen",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "geschichte.json",
+      "name": "Geschichte",
+      "beschreibung": "Wichtige Epochen, Ereignisse und Zusammenhänge der Weltgeschichte",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "grundwissen.json",
+      "name": "Grundwissen",
+      "beschreibung": "Allgemeinwissen: Geografie, Geschichte, Naturwissenschaft, Kultur",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "kunst-musik-literatur.json",
+      "name": "Kunst, Musik & Literatur",
+      "beschreibung": "Epochen, Werke und Schlüsselfiguren, die Bildung ausmachen",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "lueckentexte-allgemeinwissen.json",
+      "name": "Lückentexte: Allgemeinwissen",
+      "beschreibung": "Satz ergänzen: 42 Lücken aus Geografie, Natur, Kultur und Alltag",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "philosophie-religion.json",
+      "name": "Philosophie & Religionen",
+      "beschreibung": "Kernideen der großen Denker und Grundwissen über Weltreligionen",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "politik-eu.json",
+      "name": "Politik, Staat & EU",
+      "beschreibung": "Wie Demokratie, Grundgesetz, Wahlen und die EU funktionieren",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "reihenfolgen-ablaeufe.json",
+      "name": "Reihenfolgen: Abläufe & Zeitleisten",
+      "beschreibung": "Bringe Schritte, Zeiten und Größen in die richtige Ordnung",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "sprache-redewendungen.json",
+      "name": "Sprache & Redewendungen",
+      "beschreibung": "Deutsche Sprache, Redewendungen, Rhetorik und Fremdwörter",
+      "kategorie": "Welt & Kultur",
+      "anzahl": 42
+    },
+    {
+      "datei": "hunde.json",
+      "name": "Hunde verstehen",
+      "beschreibung": "Verhalten, Körpersprache, Ernährung und Erziehung von Hunden",
+      "kategorie": "Tiere",
+      "anzahl": 42
+    },
+    {
+      "datei": "katzen.json",
+      "name": "Katzen verstehen",
+      "beschreibung": "Verhalten, Körpersprache, Ernährung und Gesundheit von Katzen",
+      "kategorie": "Tiere",
+      "anzahl": 42
+    }
+  ]
+}
