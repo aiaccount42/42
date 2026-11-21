@@ -126,3 +126,8 @@ Hinweis: Die Namen der Ziel-Apps sind der Schlüssel – wer eine App umbenennt,
 ## Update 15 (2026-11-21)
 - Auffüllung im Quiz (`js/core/auswahl.js`): Sind zu wenige Karten fällig, kommen zuerst noch nicht sichere Karten, deren Abstand am weitesten abgelaufen ist. Gerade beantwortete Karten mit kurzem Abstand landen hinten, sichere Karten (Box 4–5) nur, wenn sonst nichts übrig ist. Vorher kamen immer die am frühesten fälligen, also oft dieselben gerade geübten Karten.
 - Erklärungen kompakter: im Deck „Ernährung“ höchstens 130 Zeichen, auf kleinen Displays 15 px und engere Zeilen.
+
+## Update 16 (2026-11-21)
+- Kartenqualität: 36 von 60 Decks überarbeitet (alle Decks mit den meisten Verräter-Mustern zuerst). Falsche Antworten sind typische Irrtümer und Verwechslungen aus demselben Feld, ähnlich lang und gleich gebaut. Wahr/Falsch-Aussagen ohne „immer/nie“-Hinweise.
+- Offen: geografie, geschichte, biologie, körper, gehirn-nerven, herz-kreislauf, hormone-immunsystem, skelett-gelenke, gesundheit, erste-hilfe, lebensmittel-küche, haushalt-reinigung, hunde, astronomie, physik-chemie, technik, sprache, kunst, philosophie sowie die Sonderdecks (Lückentexte, Reihenfolgen, Prozentrechnen, Wirtschaftsmathe, Wahr-oder-Falsch-Mythen).
+- Arbeitsweise: `test/decks.test.js` prüft Antwortlängen und gemeinsame Anfangswörter. Ein Push ohne grüne Tests würde den Deploy abbrechen.
