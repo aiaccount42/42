@@ -1359,9 +1359,15 @@ function bibliothekAnsicht() {
     inhalt = '<p class="klein">Lade Bibliothek …</p>';
   } else {
     const kategorien = [...new Set(bibliothek.eintraege.map((e) => e.kategorie ?? 'Weitere'))];
+    const meine = bibliothek.eintraege.filter((e) => daten.decks.some((d) => d.name.trim().toLowerCase() === e.name.toLowerCase()));
+    const alleKnopf = meine.length
+      ? `<button type="button" class="sekundaer" data-aktion="bibliothekAlleAktualisieren">Meine ${meine.length} Decks aktualisieren</button>
+         <p class="klein">Holt verbesserte Fragen und Antworten in deine Decks. Dein Lernstand bleibt erhalten.</p>`
+      : '';
     const chip = (kat, titel) =>
       `<button type="button" class="chip${bibliothekFilter.kategorie === kat ? ' aktiv' : ''}" data-aktion="bibliothekKategorie" data-kategorie="${esc(kat ?? '')}">${esc(titel)}</button>`;
     inhalt = `
+      ${alleKnopf}
       <input type="search" id="bibliothekSuche" placeholder="Deck suchen (z. B. Miete, Schlaf, KI)" value="${esc(bibliothekFilter.suche)}" autocomplete="off" />
       <div class="chips">${chip(null, `Alle (${bibliothek.eintraege.length})`)}${kategorien
         .map((k) => chip(k, `${k} (${bibliothek.eintraege.filter((e) => (e.kategorie ?? 'Weitere') === k).length})`))
@@ -1891,6 +1897,31 @@ const aktionen = {
     } catch {
       bibliothek.meldung = 'Das Deck konnte nicht geladen werden. Bist du online?';
     }
+    if (location.hash === '#/bibliothek') zeichne();
+  },
+
+  async bibliothekAlleAktualisieren(_daten, knopf) {
+    knopf.disabled = true;
+    knopf.textContent = 'Aktualisiere …';
+    const meine = bibliothek.eintraege.filter((e) => daten.decks.some((d) => d.name.trim().toLowerCase() === e.name.toLowerCase()));
+    let neu = 0;
+    let aktualisiert = 0;
+    let fehlgeschlagen = 0;
+    for (const e of meine) {
+      try {
+        const antwort = await fetch(`decks/${e.datei}`, { cache: 'no-store' });
+        if (!antwort.ok) throw new Error(`HTTP ${antwort.status}`);
+        const deck = parseDeck(await antwort.text());
+        const r = mergeImport(daten, deck.name, deck.karten.filter((k) => !k.fehler), uhr.jetzt());
+        daten = r.daten;
+        neu += r.hinzugefuegt;
+        aktualisiert += r.aktualisiert;
+      } catch {
+        fehlgeschlagen += 1;
+      }
+    }
+    sichern();
+    bibliothek.meldung = `${meine.length - fehlgeschlagen} Decks geprüft: ${aktualisiert} Karten aktualisiert, ${neu} neu.${fehlgeschlagen ? ` ${fehlgeschlagen} Decks konnten nicht geladen werden (offline?).` : ''}`;
     if (location.hash === '#/bibliothek') zeichne();
   },
 

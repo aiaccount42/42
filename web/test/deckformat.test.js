@@ -143,6 +143,30 @@ test('gleiche Frage mit anderem Text wird aktualisiert, Lernfortschritt bleibt',
   assert.equal(k.erklaerung, 'E');
 });
 
+test('umformulierte Frage mit "vorher" ersetzt die alte Karte, Lernfortschritt bleibt', () => {
+  const erst = mergeImport(leereDaten(), 'D', gueltige('Alte Frage?', 'Andere?'), 1000);
+  const alt = richtigBeantwortet(erst.daten.cards[0], 5000);
+  const daten = { ...erst.daten, cards: [alt, erst.daten.cards[1]] };
+
+  const neu = parseDeck(deckText([karte('Neue Frage?', { vorher: 'alte frage?' }), karte('Noch eine?', { vorher: ['Gibt es nicht?'] })])).karten;
+  assert.deepEqual(neu[0].vorher, ['alte frage?']);
+  const r = mergeImport(daten, 'D', neu, 9000);
+
+  assert.equal(r.aktualisiert, 1);
+  assert.equal(r.hinzugefuegt, 1);
+  assert.equal(r.daten.cards.length, 4 - 1);
+  const k = r.daten.cards.find((c) => c.id === alt.id);
+  assert.equal(k.frage, 'Neue Frage?');
+  assert.equal(k.box, alt.box);
+  assert.equal(k.faelligAm, alt.faelligAm);
+});
+
+test('"vorher" fehlt oder ist leer: leere Liste', () => {
+  const [a, b] = parseDeck(deckText([karte('A?'), karte('B?', { vorher: ['  ', 3] })])).karten;
+  assert.deepEqual(a.vorher, []);
+  assert.deepEqual(b.vorher, []);
+});
+
 test('gleiche Frage in anderem Deck ist eine andere Karte', () => {
   const a = mergeImport(leereDaten(), 'A', gueltige('Frage?'));
   const b = mergeImport(a.daten, 'B', gueltige('Frage?'));

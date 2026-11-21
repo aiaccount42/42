@@ -115,3 +115,10 @@ Hinweis: Die Namen der Ziel-Apps sind der Schlüssel – wer eine App umbenennt,
 ## Update 13 (2026-11-21)
 - Quiz auf kleinen Displays (iPhone 13 mini, 375 × ~629 px): Nach der Antwort bleiben nur die richtige und die gewählte Antwort sichtbar, das Urteil („Richtig!“ / „Leider falsch“) ist eine schlanke Zeile. Die Erklärung steht dadurch ohne Scrollen über der „Weiter“-Leiste. Ragt sie bei sehr langen Texten doch darunter, scrollt `erklaerungSichtbar()` (`js/app.js`) genau so weit, dass sie ganz lesbar ist.
 - Gemessen im 375 × 629-Fenster: vorher lag die Erklärung bei 4 Antworten 601–650 px tief (unter der Leiste), jetzt bei 507–559 px.
+
+## Update 14 (2026-11-21)
+- Kartenqualität: Deck „Ernährung“ als Muster überarbeitet. Falsche Antworten sind jetzt typische Irrtümer und Verwechslungen aus demselben Feld (z. B. Zitrone statt Paprika bei Vitamin C, Sonnenblumenöl bei Omega-3), gleich lang und gleich gebaut, ohne verräterische Wörter wie „immer“, „nur“, „garantiert“. Einige Fragen fragen jetzt nach Vergleich oder Begründung statt nach Wiedererkennen.
+- Deckformat: optionales Feld `vorher` (frühere Fassung der Frage). Beim Aktualisieren wird die alte Karte darüber gefunden und umgeschrieben, Box und Fälligkeit bleiben erhalten, es entstehen keine Dubletten.
+- Bibliothek: Knopf „Meine N Decks aktualisieren“ holt alle verbesserten Decks auf einmal.
+- KI-Vorlage (`promptVorlage`): Regeln für plausible falsche Antworten ergänzt.
+- Messung vor der Überarbeitung (alle Decks): bei 769 von 2.321 Auswahlkarten stehen Absolutwörter nur in den falschen Antworten.

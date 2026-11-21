@@ -16,6 +16,9 @@
 //   { "typ": "wahrfalsch", "frage": "Aussage …", "richtig": true, "erklaerung": "…" }
 //   { "typ": "luecke", "frage": "Das Herz hat ___ Kammern.", "richtig": "zwei", "falsch": ["…", "…", "…"] }
 //   { "typ": "reihenfolge", "frage": "Bringe in die richtige Reihenfolge: …", "reihenfolge": ["erster", "zweiter", "dritter"] }
+//
+// Optional "vorher": frühere Fassung(en) der Frage (Text oder Liste). Beim Aktualisieren wird die alte Karte
+// darüber gefunden und umgeschrieben, statt eine zweite anzulegen. Box und Fälligkeit bleiben erhalten.
 import { LUECKE, REIHENFOLGE_MAX, REIHENFOLGE_MIN, WAHR_FALSCH, neueKarte, neuesDeck } from './models.js';
 
 export const DECK_FORMAT = 'lerngate-deck-v1';
@@ -105,6 +108,7 @@ function pruefeKarte(k, gesehen) {
     indexRichtig,
     erklaerung: text(k?.erklaerung) || null,
     quelle: text(k?.quelle) || null,
+    vorher: (Array.isArray(k?.vorher) ? k.vorher : [k?.vorher]).map(text).filter(Boolean),
     fehler,
   };
 }
@@ -164,7 +168,7 @@ export function mergeImport(daten, deckName, karten, jetzt = Date.now()) {
   let uebersprungen = 0;
 
   for (const k of karten) {
-    const bestehend = vorhanden.get(normFrage(k.frage));
+    const bestehend = [k.frage, ...(k.vorher ?? [])].map((f) => vorhanden.get(normFrage(f))).find((b) => b && !ersetzt.has(b.id));
     if (!bestehend) {
       neu.push(
         neueKarte({
@@ -222,7 +226,10 @@ Antworte ausschließlich mit JSON, ohne Text davor oder danach, in genau diesem 
 }
 
 Regeln:
-- Genau 3 falsche Antworten pro Frage: plausibel, aber eindeutig falsch.
+- Genau 3 falsche Antworten pro Frage: plausibel, aber eindeutig falsch. Nimm typische Irrtümer und Verwechslungen aus demselben Themenfeld, keine Scherzantworten.
+- Alle vier Antworten haben dieselbe Art, Form und ungefähr dieselbe Länge. Bei Zahlen liegen die falschen Werte in der Nähe des richtigen.
+- Wörter wie „immer“, „nie“, „nur“ oder „garantiert“ dürfen nicht verraten, welche Antwort falsch ist. Ebenso wenig Weichmacher wie „meist“ oder „oft“, die nur in der richtigen stehen.
+- Die Frage verrät die Antwort nicht, z. B. durch gleiche Wörter.
 - Die richtige Antwort ist nicht systematisch die längste.
 - Jede Frage ist eindeutig und hat genau eine richtige Antwort.
 - Nur gesicherte Fakten, keine umstrittenen Behauptungen.
