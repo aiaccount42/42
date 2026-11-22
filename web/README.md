@@ -131,4 +131,4 @@ Hinweis: Die Namen der Ziel-Apps sind der Schlüssel – wer eine App umbenennt,
 - Kartenqualität: 57 von 60 Decks überarbeitet. Falsche Antworten sind typische Irrtümer und Verwechslungen aus demselben Feld, ähnlich lang und gleich gebaut. Wahr/Falsch-Aussagen ohne „immer/nie“-Hinweise.
 - Bewusst nicht angefasst: Prozentrechnen, Reihenfolgen-Abläufe, Wirtschaftsmathe (Zahlen- und Ordnungskarten, dort verraten Wörter nichts).
 - Arbeitsweise: `test/decks.test.js` prüft Antwortlängen und gemeinsame Anfangswörter. Ein Push ohne grüne Tests würde den Deploy abbrechen.
-- Messung über alle Auswahlkarten (2.279): Absolutwörter („immer“, „nur“, „keine“ …) stehen nur in den falschen Antworten bei 22 % der Karten, vorher bei 33 %. Ein zweiter Durchgang gegen Restfälle ist möglich.
+- Zweiter Durchgang (2026-11-22): Karten mit starken Absolutwörtern („nur“, „immer“, „keine“ …) ausschließlich in den falschen Antworten von 326 auf 266 gesenkt; der Rest ist teils inhaltlich sinnvoll (z. B. „Nur Ärzte dürfen …“).
